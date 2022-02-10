@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircleIcon, EditIcon, DeleteIcon } from '@mui/icons-material';
+import { CheckCircle, Edit, Delete} from '@mui/icons-material';
 
 const Todo = ({todo, toggleComplete, handleDelete, handleEdit}) => {
     const [newTitle, setNewTitle] = useState(todo.title);
@@ -9,7 +9,7 @@ const Todo = ({todo, toggleComplete, handleDelete, handleEdit}) => {
         if(todo.completed === true){
             setNewTitle(todo.title)
         }else{
-            todo.title = " ";
+            todo.title = "";
             setNewTitle(e.target.value)
         }
     }
@@ -22,14 +22,14 @@ const Todo = ({todo, toggleComplete, handleDelete, handleEdit}) => {
             onChange={handleChange}
         />
         <div>
-            <button className='button-complete' onChange={()=> toggleComplete(todo)}>
-                <CheckCircleIcon id='i' />
+            <button className='button-complete' onClick={()=> toggleComplete(todo)}>
+                <CheckCircle id='i' />
             </button>
-            <button className='button-edit' onChange={() => handleEdit(todo, newTitle)}>
-                <EditIcon id='i'/>
+            <button className='button-edit' onClick={() => handleEdit(todo, newTitle)}>
+                <Edit id='i'/>
             </button>
-            <button className='button-delete' onChange={() => handleDelete(todo.id)}>
-                <DeleteIcon id='i'/>
+            <button className='button-delete' onClick={() => handleDelete(todo.id)}>
+                <Delete id='i'/>
             </button>
 
         </div>
